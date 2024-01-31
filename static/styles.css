@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+:root {
+    --block-rows: 5;
+    --block-columns: 10;
+    --block-size: 114px;
+	--color-amplifier: aquamarine;
+	--color-filter-bp: lightblue;
+	--color-mixer: mediumorchid;
+	--color-oscillator: lightgreen;
+	--color-filter-lp: royalblue;
+	--color-filter-hp: coral;
+}
+
+::selection {
+	background: #333;
+	color: #eee;
+}
+
+body {
+	font-family: "IBM Plex Mono", monospace;
+    color: #333;
+	margin: 0;
+    line-height: 1.5em;
+	font-size: 15px;
+	background: repeating-linear-gradient(
+		45deg,
+		#aaa,
+		#aaa 2px,
+		#ccc 2px,
+		#ccc 6px
+	);
+    background-attachment: fixed;
+}
+
+.worksheet {
+    display: grid;
+	grid-gap: 0 1.67%;
+	margin: 20px auto;
+	padding: 20px;
+	border: 2px solid;
+	width: 1400px;
+	max-width: calc(100% - 40px);
+	background: #ddd;
+	box-shadow: 1px 1px, 2px 2px, 3px 3px, 4px 4px;
+}
+
+.worksheet > div {
+	margin-bottom: 20px;
+	padding: 15px;
+	background-color: #f7f7f7;
+	border: 2px solid;
+	grid-column: 1 / 7;
+	box-shadow: inherit;
+}
+
+.block-canvas {
+    display: grid;
+    min-height: 600px;
+    grid-template-rows: repeat(var(--block-rows), var(--block-size));
+    grid-template-columns: repeat(var(--block-columns), var(--block-size));
+    grid-gap: 0 1.67%;
+}
+
+.block-canvas > div {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    border: 2px solid;
+    background: #fff;
+    max-width: 100px;
+    max-height: 100px;
+	cursor: pointer;
+}
+
+.block-canvas .block {
+	background: transparent;
+	content-visibility: hidden;
+	border: 2px dashed #8b8989;
+}
+
+.block-canvas .block:focus-within {
+	border: 2px solid #8b8989;
+}
+
+
+.block-canvas .block .selectbox {
+	display: grid;
+	grid-template-columns: var(--block-size) var(--block-size) var(--block-size);
+	grid-template-rows: 0.2*var(--block-size) var(--block-size) var(--block-size) var(--block-size);
+	grid-gap: 5% 2%;
+	align-items: center;
+	justify-items: center;
+	border: 2px solid;
+	font-size: 15px;
+	padding-right: 10px;
+	padding-bottom: 30px;
+
+	.amplifier-button{
+		background-color: var(--color-amplifier);
+	}
+	.filter-bp-button{
+		background-color: var(--color-filter-bp);
+	}
+	.mixer-button{
+		background-color: var(--color-mixer);
+	}
+	.oscillator-button{
+		background-color: var(--color-oscillator);
+	}
+	.filter-lp-button{
+		background-color: var(--color-filter-lp);
+	}
+	.filter-hp-button{
+		background-color: var(--color-filter-hp);
+	}
+}
+
+.block-canvas .block .selectbox h3{
+	grid-column: 1 / 4;
+	grid-row: 1 ;
+}
+
+.block-canvas .block .selectbox .button{
+	border: 2px solid black;
+	font-size: 15px;
+	width: calc(0.8*var(--block-size));
+    height: calc(0.8*var(--block-size));
+	margin: 0;
+	padding: 0;
+}
+
+.block-canvas .block:hover {
+	background: #fff;
+	font-size: 3em;
+	color: #616161;
+	content-visibility: visible;
+}
+
+.block-canvas .amplifier:hover {
+    background-color: var(--color-amplifier);
+}
+
+.block-canvas .filter-bp:hover {
+    background-color: var(--color-filter-bp);
+}
+
+.block-canvas .mixer:hover {
+    background-color: var(--color-mixer);
+}
+
+.block-canvas .oscillator:hover {
+    background-color: var(--color-oscillator);
+}
+
+.block-canvas .filter-lp:hover {
+    background-color: var(--color-filter-lp);
+}
+
+.block-canvas .filter-hp:hover {
+    background-color: var(--color-filter-hp);
+}
+
+h2 {
+	font-size: 1.5em;
+	line-height: 1.1em;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin-top: 0;
+	padding: 5px 10px;
+	margin-bottom: 15px;
+	border-bottom: 2px solid;
+	position: relative;
+}
+
+footer a {
+    color: #333;
+    text-decoration: none;
+
+}
+
+footer a.fa::before {
+    padding-right: 4px;
+}
