@@ -5,6 +5,7 @@
 *::after {
 	box-sizing: border-box;
 }
+
 :root {
     --block-rows: 5;
     --block-columns: 10;
@@ -20,6 +21,17 @@
 ::selection {
 	background: #333;
 	color: #eee;
+}
+
+header {
+	display: grid;
+	margin: 20px auto;
+	padding: 20px;
+	border: 2px solid;
+	width: 1400px;
+	max-width: calc(100% - 40px);
+	background: #ddd;
+	box-shadow: 1px 1px, 2px 2px, 3px 3px, 4px 4px;
 }
 
 body {
@@ -38,132 +50,64 @@ body {
     background-attachment: fixed;
 }
 
-.worksheet {
-    display: grid;
-	grid-gap: 0 1.67%;
-	margin: 20px auto;
-	padding: 20px;
+#block-grid {
+	display: grid;
+	grid-template-columns: repeat(var(--block-columns), var(--block-size));
+	grid-template-rows: repeat(var(--block-rows), var(--block-size));
+	grid-gap: 1.5% 1.5%;
+	margin: 1.5% auto;
+	padding: 1.5%;
 	border: 2px solid;
 	width: 1400px;
 	max-width: calc(100% - 40px);
+	min-height: 800px;
 	background: #ddd;
 	box-shadow: 1px 1px, 2px 2px, 3px 3px, 4px 4px;
+	overflow: hidden;
 }
 
-.worksheet > div {
-	margin-bottom: 20px;
-	padding: 15px;
-	background-color: #f7f7f7;
+.block-default {
+	width: var(--block-size);
+	height: var(--block-size);
 	border: 2px solid;
-	grid-column: 1 / 7;
-	box-shadow: inherit;
-}
-
-.block-canvas {
-    display: grid;
-    min-height: 600px;
-    grid-template-rows: repeat(var(--block-rows), var(--block-size));
-    grid-template-columns: repeat(var(--block-columns), var(--block-size));
-    grid-gap: 0 1.67%;
-}
-
-.block-canvas > div {
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    border: 2px solid;
-    background: #fff;
-    max-width: 100px;
-    max-height: 100px;
+	background: #ddd;
 	cursor: pointer;
 }
 
-.block-canvas .block {
-	background: transparent;
-	content-visibility: hidden;
+.block-default:hover {
+	background: #eee;
+}
+
+.block-select {
+	border: none;
+}
+
+.empty {
 	border: 2px dashed #8b8989;
 }
 
-.block-canvas .block:focus-within {
-	border: 2px solid #8b8989;
+.amplifier-model {
+    background: var(--color-amplifier);
 }
 
-
-.block-canvas .block .selectbox {
-	display: grid;
-	grid-template-columns: var(--block-size) var(--block-size) var(--block-size);
-	grid-template-rows: 0.2*var(--block-size) var(--block-size) var(--block-size) var(--block-size);
-	grid-gap: 5% 2%;
-	align-items: center;
-	justify-items: center;
-	border: 2px solid;
-	font-size: 15px;
-	padding-right: 10px;
-	padding-bottom: 30px;
-
-	.amplifier-button{
-		background-color: var(--color-amplifier);
-	}
-	.filter-bp-button{
-		background-color: var(--color-filter-bp);
-	}
-	.mixer-button{
-		background-color: var(--color-mixer);
-	}
-	.oscillator-button{
-		background-color: var(--color-oscillator);
-	}
-	.filter-lp-button{
-		background-color: var(--color-filter-lp);
-	}
-	.filter-hp-button{
-		background-color: var(--color-filter-hp);
-	}
+.filter-bp-model {
+	background: var(--color-filter-bp);
 }
 
-.block-canvas .block .selectbox h3{
-	grid-column: 1 / 4;
-	grid-row: 1 ;
+.filter-lp-model {
+	background: var(--color-filter-lp);
 }
 
-.block-canvas .block .selectbox .button{
-	border: 2px solid black;
-	font-size: 15px;
-	width: calc(0.8*var(--block-size));
-    height: calc(0.8*var(--block-size));
-	margin: 0;
-	padding: 0;
+.filter-hp-model {
+	background: var(--color-filter-hp);
 }
 
-.block-canvas .block:hover {
-	background: #fff;
-	font-size: 3em;
-	color: #616161;
-	content-visibility: visible;
+.mixer-model {
+	background: var(--color-mixer);
 }
 
-.block-canvas .amplifier:hover {
-    background-color: var(--color-amplifier);
-}
-
-.block-canvas .filter-bp:hover {
-    background-color: var(--color-filter-bp);
-}
-
-.block-canvas .mixer:hover {
-    background-color: var(--color-mixer);
-}
-
-.block-canvas .oscillator:hover {
-    background-color: var(--color-oscillator);
-}
-
-.block-canvas .filter-lp:hover {
-    background-color: var(--color-filter-lp);
-}
-
-.block-canvas .filter-hp:hover {
-    background-color: var(--color-filter-hp);
+.oscillator-model {
+	background: var(--color-oscillator);
 }
 
 h2 {
@@ -178,10 +122,20 @@ h2 {
 	position: relative;
 }
 
+footer {
+	display: grid;
+	margin: 20px auto;
+	padding: 20px;
+	border: 2px solid;
+	width: 1400px;
+	max-width: calc(100% - 40px);
+	background: #ddd;
+	box-shadow: 1px 1px, 2px 2px, 3px 3px, 4px 4px;
+}
+
 footer a {
     color: #333;
     text-decoration: none;
-
 }
 
 footer a.fa::before {

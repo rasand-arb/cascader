@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>RF Cascade Sheet</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+</head>
+
+<body>
+    <header>
+            <h2>RF Cascade Sheet</h2>
+        <p>Welcome to the RF Cascade Sheet. A block diagram tool for cascading RF components and exploring the
+            results.
+        <ul>
+            <li>Click on a block to add a component to it</li>
+            <li>Edit components by clicking them</li>
+            <li>Explore results in the results tab.</li>
+            <li>The signal flow goes from left to right, and will be automatically connected</li>
+        </ul>
+        </p>
+    </header>
+    {% include 'blockgrid.jinja2' %}
+    <footer>
+        <a href="https://github.com/rasmusravn" class="fa fa-github">rasmusravn</a>
+    </footer>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+<div id="block-grid">
+{% for block in blockgrid %}
+    <div id="block{{block.id}}" class="{{block.css_class}}" {{block.hx}}>
+        {{ block.model | safe }}
+    </div>
+{% endfor %}
+</div>

@@ -1,5 +1,0 @@
-- make block requests with smart urls
-- figure out how to make proper end-points for component-select
-    - one should return html for 9 blocks with 9 buttons inside
-    - consider a show_blocks list next to blocks_classes list, where blocks_classes contains the diagram and blocks_show describes what to show. e.g. some block classes changed during select
-- consider doing update of whole sheet/canvas for each select event. meaning the corresponding end points returns html for the full sheet on each update.
